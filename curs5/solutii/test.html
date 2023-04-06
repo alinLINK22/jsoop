@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Vehicle {
+            constructor(type, color, make, year) {
+                this.type = type;
+                this.color = color;
+                this.make = make;
+                this.year = year;
+                this.isRunning = false;
+                this.passengers = 0;
+            }
+
+            info() {
+                return `This is a ${this.color} ${this.year} ${this.make} ${this.type}.`;
+            }
+
+            start() {
+                if (this.isRunning) {
+                    return "The vehicle is already running.";
+                } else {
+                    this.isRunning = true;
+                    return "The vehicle has started.";
+                }
+            }
+
+            stop() {
+                if (this.isRunning) {
+                    this.isRunning = false;
+                    return "The vehicle has stopped.";
+                } else {
+                    return "The vehicle is already stopped.";
+                }
+            }
+
+            pickUpPassengers() {
+                if (this.isRunning) {
+                    this.passengers++;
+                    return "A passenger has been picked up.";
+                } else {
+                    return "The vehicle is not running.";
+                }
+            }
+
+            dropOffPassengers() {
+                if (this.passengers > 0) {
+                    this.passengers--;
+                    return "A passenger has been dropped off.";
+                } else {
+                    return "There are no passengers to drop off.";
+                }
+            }
+        }
+
+        const vehicle1 = new Vehicle("car", "red", "Ford", 2015);
+        const vehicle2 = new Vehicle("motorbike", "blue", "Honda", 2018);
+
+        console.log(vehicle1.info());
+        console.log(vehicle1.start());
+        console.log(vehicle1.pickUpPassengers());
+        console.log(vehicle1.dropOffPassengers());
+        console.log(vehicle1.stop());
+
+        console.log(vehicle2.info());
+        console.log(vehicle2.start());
+        console.log(vehicle2.pickUpPassengers());
+        console.log(vehicle2.dropOffPassengers());
+        console.log(vehicle2.stop());
+
+
+
+    </script>
+
+</body>
+
+</html>
